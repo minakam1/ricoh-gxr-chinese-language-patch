@@ -26,6 +26,12 @@
 - **英文替换版**：`Ricoh_GXR_1.51_水水固件_英文替换版.zip`
 - **完全解锁版**：`Ricoh_GXR_1.51_水水固件_完全解锁版.zip`
 
+Release 页面使用上述中文完整名称作为附件标签。GitHub 会自动清洗附件实际文件名中
+的中文字符，因此下载后也可能显示为以下兼容名称：
+
+- `Ricoh_GXR_1.51_Shuishui_Firmware_English_Replacement.zip`
+- `Ricoh_GXR_1.51_Shuishui_Firmware_Full_Unlock.zip`
+
 每个 ZIP 内都包含独立的中文 `README.md` 和可直接复制到 SD 卡的 `SD_ROOT`。
 
 仓库同时保存理光官方原版更新手册：
