@@ -116,10 +116,13 @@ function Patch-Unlock([byte[]]$Original) {
 }
 
 function Find-FirmwareDirectory([string]$Root) {
+    if ([string]::IsNullOrWhiteSpace($Root)) { throw "固件路径为空，请重新拖入 ZIP 或文件夹" }
     $candidates = @()
     $possible = @()
     if (Test-Path -LiteralPath $Root -PathType Container) { $possible += Get-Item -LiteralPath $Root }
-    $possible += Get-ChildItem -LiteralPath $Root -Recurse -File -Filter "ilaunch3" | ForEach-Object { $_.Directory }
+    $possible += Get-ChildItem -Path $Root -Recurse -Filter "ilaunch3" |
+        Where-Object { -not $_.PSIsContainer } |
+        ForEach-Object { $_.Directory }
     foreach ($directory in ($possible | Sort-Object FullName -Unique)) {
         $complete = $true
         foreach ($name in $OfficialHashes.Keys) {
@@ -135,6 +138,7 @@ function Find-FirmwareDirectory([string]$Root) {
 }
 
 function Get-UniqueOutput([string]$Parent, [string]$Stem) {
+    if ([string]::IsNullOrWhiteSpace($Parent)) { throw "输出目录为空，请把固件放在普通文件夹中再重试" }
     $candidate = Join-Path $Parent "$Stem.zip"
     $number = 2
     while (Test-Path -LiteralPath $candidate) {
@@ -163,15 +167,16 @@ while ($true) {
     $Source = $pendingSource
     if ([string]::IsNullOrWhiteSpace($Source)) {
         Write-Host "`n请把官方 ZIP 或文件夹拖到窗口，然后按回车。" -ForegroundColor Yellow
-        $Source = (Read-Host ">").Trim('"')
+        $Source = (Read-Host ">").Trim().Trim('"').Trim("'")
     }
+    if ([string]::IsNullOrWhiteSpace($Source)) { throw "没有选择固件 ZIP 或文件夹" }
     $item = Get-Item -LiteralPath $Source
     Write-Host "`n正在导入并检查：$($item.FullName)" -ForegroundColor Cyan
     if ($item.PSIsContainer) {
         $searchRoot = $item.FullName
     } elseif ($item.Extension -ieq ".zip") {
         $temporary = Join-Path ([IO.Path]::GetTempPath()) ("gxr-input-" + [guid]::NewGuid())
-        Expand-Archive -LiteralPath $item.FullName -DestinationPath $temporary
+        Expand-Archive -Path $item.FullName -DestinationPath $temporary
         $searchRoot = $temporary
     } else {
         throw "请导入 ZIP 或文件夹"
@@ -181,7 +186,7 @@ while ($true) {
     $files = @{}
     foreach ($entry in $OfficialHashes.GetEnumerator()) {
         $path = Join-Path $firmwareDirectory $entry.Key
-        $actual = (Get-FileHash -LiteralPath $path -Algorithm SHA256).Hash.ToLower()
+        $actual = (Get-FileHash -Path $path -Algorithm SHA256).Hash.ToLower()
         if ($actual -ne $entry.Value) { throw "$($entry.Key) 不是已知的官方 GXR 1.51 文件" }
         $files[$entry.Key] = [IO.File]::ReadAllBytes($path)
     }
@@ -203,7 +208,7 @@ while ($true) {
     }
 
     Write-Host "`n正在生成……" -ForegroundColor Yellow
-    $outputParent = if ($item.PSIsContainer) { $item.Parent.FullName } else { $item.DirectoryName }
+    $outputParent = Split-Path -Path $item.FullName -Parent
     $output = Get-UniqueOutput $outputParent $stem
     $stage = Join-Path ([IO.Path]::GetTempPath()) ("gxr-output-" + [guid]::NewGuid())
     $packageRoot = Join-Path $stage $stem
@@ -216,8 +221,8 @@ while ($true) {
     $readme = "项目仓库：$RepoUrl`r`n`r`n把 SD_ROOT 里面的 29 个文件复制到 SD 卡根目录。`r`n"
     [IO.File]::WriteAllText((Join-Path $packageRoot "README.txt"), $readme, [Text.UTF8Encoding]::new($false))
     @{ mode = $mode; file_count = 29; modified_files = @("ilaunch3") } |
-        ConvertTo-Json | Set-Content -LiteralPath (Join-Path $packageRoot "manifest.json") -Encoding UTF8
-    Compress-Archive -LiteralPath $packageRoot -DestinationPath $output -CompressionLevel Optimal
+        ConvertTo-Json | Set-Content -Path (Join-Path $packageRoot "manifest.json") -Encoding UTF8
+    Compress-Archive -Path $packageRoot -DestinationPath $output -CompressionLevel Optimal
 
     Write-Host "`n生成完成：" -ForegroundColor Green
     Write-Host $output -ForegroundColor Green
@@ -227,6 +232,7 @@ while ($true) {
     } catch {
         Write-Host "`n错误：$($_.Exception.Message)" -ForegroundColor Red
         Write-Host "请重新拖入固件 ZIP 或文件夹。" -ForegroundColor Yellow
+        Write-Host "脚本行号：$($_.InvocationInfo.ScriptLineNumber)" -ForegroundColor DarkGray
     } finally {
         if ($temporary -and (Test-Path -LiteralPath $temporary)) { Remove-Item -LiteralPath $temporary -Recurse -Force }
         if ($stage -and (Test-Path -LiteralPath $stage)) { Remove-Item -LiteralPath $stage -Recurse -Force }

@@ -3,8 +3,8 @@
 
 from __future__ import annotations
 
-import hashlib
 import argparse
+import hashlib
 import platform
 import shutil
 import subprocess
@@ -16,6 +16,11 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 DIST = ROOT / "dist"
 APP_NAME = "GXR-Firmware-Modifier"
+REPO_URL = "https://github.com/minakam1/ricoh-gxr-chinese-language-patch"
+ZIP_COMMENT = (
+    "Ricoh GXR 1.51 水水固件修改器｜本地生成语言修改固件\n"
+    f"仓库：{REPO_URL}"
+).encode("utf-8")
 
 
 def write_sha256(path: Path) -> Path:
@@ -25,8 +30,13 @@ def write_sha256(path: Path) -> Path:
     return checksum
 
 
+def add_manual(package: Path) -> None:
+    shutil.copy2(ROOT / "修改器使用说明.md", package / "使用说明.md")
+
+
 def make_zip(output: Path, root: Path) -> None:
     with zipfile.ZipFile(output, "w", zipfile.ZIP_DEFLATED, compresslevel=9) as archive:
+        archive.comment = ZIP_COMMENT
         for path in sorted(root.rglob("*")):
             if path.is_file():
                 archive.write(path, f"{root.name}/{path.relative_to(root)}")
@@ -35,8 +45,11 @@ def make_zip(output: Path, root: Path) -> None:
 def build_windows() -> Path:
     package = DIST / "GXR固件修改器-Windows"
     package.mkdir(parents=True)
-    shutil.copy2(ROOT / "windows" / "GXR固件修改器.bat", package)
-    shutil.copy2(ROOT / "windows" / "GXR固件修改器.ps1", package)
+    launcher = (ROOT / "windows" / "GXR固件修改器.bat").read_text(encoding="utf-8")
+    (package / "GXR固件修改器.bat").write_text(launcher, encoding="utf-8", newline="\r\n")
+    script = (ROOT / "windows" / "GXR固件修改器.ps1").read_text(encoding="utf-8")
+    (package / "gxr_modifier.ps1").write_text(script, encoding="utf-8-sig", newline="\r\n")
+    add_manual(package)
     output = DIST / "GXR固件修改器-Windows.zip"
     make_zip(output, package)
     return output
@@ -78,6 +91,7 @@ def build_macos() -> Path:
         encoding="utf-8",
     )
     launcher.chmod(0o755)
+    add_manual(package)
     output = DIST / f"GXR固件修改器-macOS-{machine}.zip"
     make_zip(output, package)
     return output

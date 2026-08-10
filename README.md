@@ -53,7 +53,7 @@ Windows 版由 `.bat` 和 PowerShell 脚本组成，使用系统自带的 PowerS
 ## Windows 操作方法
 
 1. 解压 `GXR固件修改器-Windows.zip`。
-2. 保持 `GXR固件修改器.bat` 和 `GXR固件修改器.ps1` 在同一文件夹中。
+2. 完整解压后，保持 `GXR固件修改器.bat` 和 `gxr_modifier.ps1` 在同一文件夹中。
 3. 把官方固件 ZIP 或解压后的固件文件夹拖到 `GXR固件修改器.bat` 上。
 4. 检查通过后输入 `1` 或 `2`，按回车确认。
 5. 等待窗口显示“生成完成”，记下绿色的输出路径。
