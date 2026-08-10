@@ -4,7 +4,7 @@
 
 <https://github.com/minakam1/ricoh-gxr-chinese-language-patch>
 
-请只从上述仓库的 GitHub Releases 下载，并核对随包提供的 SHA-256。其他网站、
+请只从上述仓库或其 GitHub Releases 下载，并核对随包提供的 SHA-256。其他网站、
 网盘、网店或收费渠道中的副本可能不是本项目发布的原始文件。
 
 “水水固件”提供两种 Ricoh GXR 1.51 语言修改方案，均已获得真机成功反馈：
@@ -21,10 +21,17 @@
 
 ## 下载
 
-两个版本分别通过 GitHub Releases 发布：
+两个版本的 Release 页面：
 
-- **英文替换版**：`Ricoh_GXR_1.51_水水固件_英文替换版.zip`
-- **完全解锁版**：`Ricoh_GXR_1.51_水水固件_完全解锁版.zip`
+- [水水固件 · 英文替换版 Release](https://github.com/minakam1/ricoh-gxr-chinese-language-patch/releases/tag/shuishui-english-v1.0)
+- [水水固件 · 完全解锁版 Release](https://github.com/minakam1/ricoh-gxr-chinese-language-patch/releases/tag/shuishui-full-unlock-v1.0)
+
+仓库内也直接保存固件及校验文件：
+
+- [Ricoh_GXR_1.51_水水固件_英文替换版.zip](Ricoh_GXR_1.51_水水固件_英文替换版.zip)
+- [英文替换版 SHA-256](Ricoh_GXR_1.51_水水固件_英文替换版.zip.sha256)
+- [Ricoh_GXR_1.51_水水固件_完全解锁版.zip](Ricoh_GXR_1.51_水水固件_完全解锁版.zip)
+- [完全解锁版 SHA-256](Ricoh_GXR_1.51_水水固件_完全解锁版.zip.sha256)
 
 Release 页面使用上述中文完整名称作为附件标签。GitHub 会自动清洗附件实际文件名中
 的中文字符，因此下载后也可能显示为以下兼容名称：
