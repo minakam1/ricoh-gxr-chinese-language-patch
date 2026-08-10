@@ -1,1 +1,13 @@
 .DS_Store
+__pycache__/
+*.py[cod]
+*.zip
+*.sha256
+output/
+SD_ROOT/
+ilaunch[0-9]
+[jknq]launch[0-9]
+l[0-9][0-9]firm[0-9]
+.venv-build/
+build/
+dist/
