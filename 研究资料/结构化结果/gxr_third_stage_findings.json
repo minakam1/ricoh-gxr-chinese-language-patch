@@ -1,0 +1,80 @@
+{
+  "firmware": {
+    "path": "GXR Update/Firmware rel 1.51/ilaunch3",
+    "sha256": "da1980e9d6f3996ede4953b8311cf0ce2abeb4bb300b6ee60a38f38e29a3cdf7"
+  },
+  "live_usb": {
+    "vid": "0x05CA",
+    "pid": "0x0133",
+    "usb_mode": 2,
+    "num_configurations": 2,
+    "current_configuration": 1,
+    "speed": "high-speed",
+    "configuration_1": {
+      "class": "08/06/50",
+      "role": "mass-storage"
+    },
+    "configuration_2": {
+      "class": "FF/00/00",
+      "role": "vendor-specific-unknown",
+      "endpoints": [
+        "0x81 bulk-in",
+        "0x02 bulk-out",
+        "0x83 interrupt-in"
+      ]
+    }
+  },
+  "live_public_disk": {
+    "device_at_capture": "/dev/disk4",
+    "size_bytes": 91013632,
+    "partition_scheme": "FDisk_partition_scheme",
+    "filesystem": "FAT16",
+    "volume": "RICOHDCI",
+    "partition_offset_bytes": 24064,
+    "media_read_only": true,
+    "volume_read_only": true,
+    "raw_capture": {
+      "completed": false,
+      "attempts": [
+        "direct open: Permission denied",
+        "administrator-authorized dd: Operation not permitted"
+      ],
+      "reason": "macOS privacy access denied raw removable-device access to the Codex app process"
+    }
+  },
+  "usb_code": {
+    "mode_byte_va": "0x203AAAA5",
+    "descriptor_patch_va": "0x20394228",
+    "descriptor_pointer_init_va": "0x20394688",
+    "get_descriptor_va": "0x20398D04",
+    "mode_assign_va": [
+      "0x2038D878",
+      "0x2038D96C"
+    ]
+  },
+  "debug_startup": {
+    "input_scan_va": "0x2005C538",
+    "input_read_va": "0x2006439C",
+    "flag_or_va": "0x20068A68",
+    "mode_2": {
+      "condition": "input 19 active and inputs 21/22 inactive",
+      "flag": "0x00100000"
+    },
+    "mode_1": {
+      "condition": "input 20 active and inputs 21/22 inactive",
+      "flag": "0x00080000"
+    },
+    "physical_mapping": {
+      "confidence": "partial",
+      "known": "19/20 and 21/22 are two opposing input pairs",
+      "inference": "likely plus/minus and Fn1/Fn2",
+      "unresolved": "orientation within each pair"
+    }
+  },
+  "safety": {
+    "camera_writes_performed": false,
+    "usb_configuration_switched": false,
+    "vendor_requests_sent": false,
+    "trigger_files_created": false
+  }
+}

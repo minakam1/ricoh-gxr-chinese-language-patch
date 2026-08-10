@@ -1,0 +1,376 @@
+{
+  "output_directory": "GXR_1.51_English_to_简体中文_实验包",
+  "output_zip": "GXR_1.51_English_to_简体中文_实验包.zip",
+  "output_zip_sha256": "a1516f56a638bf883b875d6f7c5c1ff83b18e460f377dcce3c0c719929df543c",
+  "manifest": {
+    "name": "GXR 1.51 English to Simplified Chinese resource redirect",
+    "status": "EXPERIMENTAL_UNTESTED_ON_HARDWARE",
+    "official_zip_sha256": "3705984b8433c40d2ed4fd2600c11f03ed8a6de7dbe7f66efd38ee5ca15fc898",
+    "package_zip_sha256_placeholder": "SEE_EXTERNAL_SHA256_FILE",
+    "file_count": 29,
+    "patched_files": [
+      "ilaunch4",
+      "jlaunch4",
+      "klaunch4",
+      "l06firm4",
+      "l08firm4",
+      "nlaunch4",
+      "qlaunch4"
+    ],
+    "unchanged_files": [
+      "ilaunch0",
+      "ilaunch3",
+      "ilaunch8",
+      "jlaunch0",
+      "jlaunch3",
+      "jlaunch8",
+      "klaunch0",
+      "klaunch3",
+      "klaunch8",
+      "l06firm0",
+      "l06firm3",
+      "l06firm5",
+      "l06firm8",
+      "l08firm0",
+      "l08firm3",
+      "l08firm8",
+      "nlaunch0",
+      "nlaunch3",
+      "nlaunch8",
+      "qlaunch0",
+      "qlaunch3",
+      "qlaunch8"
+    ],
+    "patches": [
+      {
+        "file": "ilaunch4",
+        "size": 3691596,
+        "sha256_before": "c9271288f8d395296623a3fe5358b2d83dec8730a89ed138a48ff8a2e8f14a5a",
+        "sha256_after": "c450276a24f05937a1f22f5325b26a975261035c480debf23f4055dc633223f2",
+        "checksum_before": "0x436AFC97",
+        "checksum_after": "0x436AFB49",
+        "english_record_offset": 3689796,
+        "english_before": {
+          "record_offset": 3689796,
+          "data_offset": 539264,
+          "data_size": 36056,
+          "data_sha256": "34e83c1b8813fed6eb82d01ff9017750009c20ccbf601d009a34c716f46744c4"
+        },
+        "simplified_chinese": {
+          "record_offset": 3689956,
+          "data_offset": 834988,
+          "data_size": 64524,
+          "data_sha256": "46771e8f9fea4c23f03e79de26828e21b454191dba26c9feab91a608bceeb805"
+        },
+        "english_after": {
+          "record_offset": 3689796,
+          "data_offset": 834988,
+          "data_size": 64524,
+          "data_sha256": "46771e8f9fea4c23f03e79de26828e21b454191dba26c9feab91a608bceeb805"
+        },
+        "changed_byte_count": 7,
+        "changed_offsets": [
+          366,
+          367,
+          3689797,
+          3689798,
+          3689799,
+          3689802,
+          3689803
+        ],
+        "changed_ranges_allowed": [
+          [
+            364,
+            368
+          ],
+          [
+            3689796,
+            3689804
+          ]
+        ]
+      },
+      {
+        "file": "jlaunch4",
+        "size": 1031752,
+        "sha256_before": "377e980401d98ba303246f00b4633468ef5affa54ffbc22d24659cc4b1c5e8ca",
+        "sha256_after": "dcaa47ddfd7af391de05b83c2319e356e736a3d404235403cdbe8305b84ec19a",
+        "checksum_before": "0x0AAA7C7F",
+        "checksum_after": "0x0AAA8061",
+        "english_record_offset": 1031424,
+        "english_before": {
+          "record_offset": 1031424,
+          "data_offset": 538052,
+          "data_size": 31538,
+          "data_sha256": "b291c802317920ad255515c30ceab31ea648ac77c640f97950396cca2ca262b9"
+        },
+        "simplified_chinese": {
+          "record_offset": 1031584,
+          "data_offset": 794552,
+          "data_size": 55926,
+          "data_sha256": "9107cb0fabd00f4b35317e6685f64eee3ccd4c7e3fbc0a9ac6b180e86ec8691f"
+        },
+        "english_after": {
+          "record_offset": 1031424,
+          "data_offset": 794552,
+          "data_size": 55926,
+          "data_sha256": "9107cb0fabd00f4b35317e6685f64eee3ccd4c7e3fbc0a9ac6b180e86ec8691f"
+        },
+        "changed_byte_count": 7,
+        "changed_offsets": [
+          366,
+          367,
+          1031425,
+          1031426,
+          1031427,
+          1031430,
+          1031431
+        ],
+        "changed_ranges_allowed": [
+          [
+            364,
+            368
+          ],
+          [
+            1031424,
+            1031432
+          ]
+        ]
+      },
+      {
+        "file": "klaunch4",
+        "size": 1031752,
+        "sha256_before": "2dd87ee852b4cea2aff881da9903871a57910da71b27402b1dd29c8dc77fdfe2",
+        "sha256_after": "4e33ce06cea4aace0b85978445b1a8c0f6ef5e23b58161598a32fd243efd5bfd",
+        "checksum_before": "0x0AAA7C7F",
+        "checksum_after": "0x0AAA8061",
+        "english_record_offset": 1031424,
+        "english_before": {
+          "record_offset": 1031424,
+          "data_offset": 538052,
+          "data_size": 31538,
+          "data_sha256": "b291c802317920ad255515c30ceab31ea648ac77c640f97950396cca2ca262b9"
+        },
+        "simplified_chinese": {
+          "record_offset": 1031584,
+          "data_offset": 794552,
+          "data_size": 55926,
+          "data_sha256": "9107cb0fabd00f4b35317e6685f64eee3ccd4c7e3fbc0a9ac6b180e86ec8691f"
+        },
+        "english_after": {
+          "record_offset": 1031424,
+          "data_offset": 794552,
+          "data_size": 55926,
+          "data_sha256": "9107cb0fabd00f4b35317e6685f64eee3ccd4c7e3fbc0a9ac6b180e86ec8691f"
+        },
+        "changed_byte_count": 7,
+        "changed_offsets": [
+          366,
+          367,
+          1031425,
+          1031426,
+          1031427,
+          1031430,
+          1031431
+        ],
+        "changed_ranges_allowed": [
+          [
+            364,
+            368
+          ],
+          [
+            1031424,
+            1031432
+          ]
+        ]
+      },
+      {
+        "file": "l06firm4",
+        "size": 1031752,
+        "sha256_before": "c0aa8256c682a41ad96277eea075e2c58dca5335dc9bc824e09e78fe69ab10d0",
+        "sha256_after": "f8f598652f1ceb1051bb2540738cdbad1c1f99299403ee03ad72301efc6aed0a",
+        "checksum_before": "0x0AAA7C7F",
+        "checksum_after": "0x0AAA8061",
+        "english_record_offset": 1031424,
+        "english_before": {
+          "record_offset": 1031424,
+          "data_offset": 538052,
+          "data_size": 31538,
+          "data_sha256": "b291c802317920ad255515c30ceab31ea648ac77c640f97950396cca2ca262b9"
+        },
+        "simplified_chinese": {
+          "record_offset": 1031584,
+          "data_offset": 794552,
+          "data_size": 55926,
+          "data_sha256": "9107cb0fabd00f4b35317e6685f64eee3ccd4c7e3fbc0a9ac6b180e86ec8691f"
+        },
+        "english_after": {
+          "record_offset": 1031424,
+          "data_offset": 794552,
+          "data_size": 55926,
+          "data_sha256": "9107cb0fabd00f4b35317e6685f64eee3ccd4c7e3fbc0a9ac6b180e86ec8691f"
+        },
+        "changed_byte_count": 7,
+        "changed_offsets": [
+          366,
+          367,
+          1031425,
+          1031426,
+          1031427,
+          1031430,
+          1031431
+        ],
+        "changed_ranges_allowed": [
+          [
+            364,
+            368
+          ],
+          [
+            1031424,
+            1031432
+          ]
+        ]
+      },
+      {
+        "file": "l08firm4",
+        "size": 1031752,
+        "sha256_before": "0f787a6fa51893d98bcc778c9e91b2a46ce4fef139828332f418142aa4f36060",
+        "sha256_after": "6795b9d887791e40f1282394c174b67941e398f08aa1e1d878f80a7aa6079284",
+        "checksum_before": "0x0AAA7C7F",
+        "checksum_after": "0x0AAA8061",
+        "english_record_offset": 1031424,
+        "english_before": {
+          "record_offset": 1031424,
+          "data_offset": 538052,
+          "data_size": 31538,
+          "data_sha256": "b291c802317920ad255515c30ceab31ea648ac77c640f97950396cca2ca262b9"
+        },
+        "simplified_chinese": {
+          "record_offset": 1031584,
+          "data_offset": 794552,
+          "data_size": 55926,
+          "data_sha256": "9107cb0fabd00f4b35317e6685f64eee3ccd4c7e3fbc0a9ac6b180e86ec8691f"
+        },
+        "english_after": {
+          "record_offset": 1031424,
+          "data_offset": 794552,
+          "data_size": 55926,
+          "data_sha256": "9107cb0fabd00f4b35317e6685f64eee3ccd4c7e3fbc0a9ac6b180e86ec8691f"
+        },
+        "changed_byte_count": 7,
+        "changed_offsets": [
+          366,
+          367,
+          1031425,
+          1031426,
+          1031427,
+          1031430,
+          1031431
+        ],
+        "changed_ranges_allowed": [
+          [
+            364,
+            368
+          ],
+          [
+            1031424,
+            1031432
+          ]
+        ]
+      },
+      {
+        "file": "nlaunch4",
+        "size": 1031752,
+        "sha256_before": "f2bbc71463d9272adc0da8801bc2997a2c147b0ce33c10aaeac01a506e4c678d",
+        "sha256_after": "8354f8326c9c74b95e4995fe5abe038e6aedda5f5d95e0d797d8b52116ebae10",
+        "checksum_before": "0x0AAA7C7F",
+        "checksum_after": "0x0AAA8061",
+        "english_record_offset": 1031424,
+        "english_before": {
+          "record_offset": 1031424,
+          "data_offset": 538052,
+          "data_size": 31538,
+          "data_sha256": "b291c802317920ad255515c30ceab31ea648ac77c640f97950396cca2ca262b9"
+        },
+        "simplified_chinese": {
+          "record_offset": 1031584,
+          "data_offset": 794552,
+          "data_size": 55926,
+          "data_sha256": "9107cb0fabd00f4b35317e6685f64eee3ccd4c7e3fbc0a9ac6b180e86ec8691f"
+        },
+        "english_after": {
+          "record_offset": 1031424,
+          "data_offset": 794552,
+          "data_size": 55926,
+          "data_sha256": "9107cb0fabd00f4b35317e6685f64eee3ccd4c7e3fbc0a9ac6b180e86ec8691f"
+        },
+        "changed_byte_count": 7,
+        "changed_offsets": [
+          366,
+          367,
+          1031425,
+          1031426,
+          1031427,
+          1031430,
+          1031431
+        ],
+        "changed_ranges_allowed": [
+          [
+            364,
+            368
+          ],
+          [
+            1031424,
+            1031432
+          ]
+        ]
+      },
+      {
+        "file": "qlaunch4",
+        "size": 1031752,
+        "sha256_before": "eb2533fdb26ee61cc2135c40fa73a2d6f618bd6f1872f594b256ce4b586aa90b",
+        "sha256_after": "7b75d6e096cac3e6cd08a402777f58e7dcdac259174e1d8fccc47d0dd96ba62f",
+        "checksum_before": "0x0AAA7C7F",
+        "checksum_after": "0x0AAA8061",
+        "english_record_offset": 1031424,
+        "english_before": {
+          "record_offset": 1031424,
+          "data_offset": 538052,
+          "data_size": 31538,
+          "data_sha256": "b291c802317920ad255515c30ceab31ea648ac77c640f97950396cca2ca262b9"
+        },
+        "simplified_chinese": {
+          "record_offset": 1031584,
+          "data_offset": 794552,
+          "data_size": 55926,
+          "data_sha256": "9107cb0fabd00f4b35317e6685f64eee3ccd4c7e3fbc0a9ac6b180e86ec8691f"
+        },
+        "english_after": {
+          "record_offset": 1031424,
+          "data_offset": 794552,
+          "data_size": 55926,
+          "data_sha256": "9107cb0fabd00f4b35317e6685f64eee3ccd4c7e3fbc0a9ac6b180e86ec8691f"
+        },
+        "changed_byte_count": 7,
+        "changed_offsets": [
+          366,
+          367,
+          1031425,
+          1031426,
+          1031427,
+          1031430,
+          1031431
+        ],
+        "changed_ranges_allowed": [
+          [
+            364,
+            368
+          ],
+          [
+            1031424,
+            1031432
+          ]
+        ]
+      }
+    ]
+  }
+}
