@@ -1,0 +1,46 @@
+name: Build command-line packages
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - "modifier-v*"
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: windows-latest
+            artifact: GXR-Modifier-Windows-BAT
+            target: windows
+          - os: macos-latest
+            artifact: GXR-Modifier-macOS-command
+            target: macos
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - name: Install macOS packager
+        if: runner.os == 'macOS'
+        run: python -m pip install -r requirements-build.txt
+      - name: Run tests
+        run: python -m unittest discover -s tests -v
+      - name: Build package
+        run: python packaging/build_cli.py --target ${{ matrix.target }}
+      - name: Upload package
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.artifact }}
+          path: |
+            dist/*.zip
+            dist/*.sha256
+          if-no-files-found: error
